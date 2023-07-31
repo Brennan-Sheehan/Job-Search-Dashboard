@@ -34,16 +34,22 @@
                 <option>Applied</option>
                 <option>Accepted</option>
               </select>
-              
-              
             </form>
           </div>
 
           <div class="modal-footer">
-            <div class="buttons">
-              <input id="discard" class="button" value="Discard" @click="$emit('close')"/>
-              <input id="save" value="Save"  class="button" @click="$emit('close'), addJobCard()" />
-            </div>
+            <input
+              id="discard"
+              class="button"
+              value="Discard"
+              @click="$emit('close')"
+            />
+            <input
+              id="save"
+              class="button"
+              value="Save"
+              @click="$emit('close'), addJobCard()"
+            />
           </div>
         </div>
       </div>
@@ -73,19 +79,9 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "montserrat", sans-serif;
-}
-
 .modal-mask {
   position: fixed;
-  z-index: 9998;
+  z-index: 99;
   top: 0;
   left: 0;
   width: 100%;
@@ -109,6 +105,7 @@ body {
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
+  z-index: 20;
 }
 h1 {
   color: #222;
@@ -151,14 +148,13 @@ p {
   border-bottom: 1px solid rgba(25, 4, 69, 0.1);
 }
 
-.modal-footer{
+.modal-footer {
   display: flex;
-  height: 50px;
-  
+  height: 40px;
   align-items: center;
   justify-content: flex-end;
   border-top: 1px solid rgba(25, 4, 69, 0.1);
-  padding: 0px 10px;
+  padding: 5px 10px;
 }
 
 h1 {
@@ -218,14 +214,7 @@ div.label-style {
   line-height: 18px;
   font-weight: 600;
 }
-.buttons {
-  display: flex;
-  height: 50px;
-  align-items: center;
-  width: 240px;
-  border-top: 1px solid rgba(25, 4, 69, 0.1);
-  padding: 0px 10px;
-}
+
 #save {
   background-color: rgba(3, 1, 163, 0.507);
   color: white;
@@ -234,28 +223,27 @@ div.label-style {
 
 .button {
   cursor: pointer;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    box-sizing: border-box;
-    display: inline-flex;
-    flex-direction: row;
-    
-    align-items: center;
-    
-    justify-content: center;
-    letter-spacing: 0px;
-    font-family: Lato;
-    transition: all 0.4s ease-out 0s;
-    text-align: center;
-    margin: 0px;
-    width: 100px;
-    font-weight: 600;
-    border-radius: 6px;
-    padding: 0px 8px;
-    height: 28px;
-    font-size: 13px;
-    color: rgba(25, 4, 69, 0.7);
-    background-color: white;
-    border: 1px solid rgba(25, 4, 69, 0.2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0px;
+  font-family: Lato;
+  transition: all 0.4s ease-out 0s;
+  text-align: center;
+  margin: 0px;
+  width: auto;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0px 8px;
+  height: 28px;
+  font-size: 13px;
+  color: rgba(25, 4, 69, 0.7);
+  background-color: white;
+  border: 1px solid rgba(25, 4, 69, 0.2);
+  width: 68px;
 }
 </style>

@@ -7,7 +7,7 @@
             <h1 class="title">Add Job</h1>
           </div>
           <div class="modal-body">
-            <form>
+            <form v-on:submit.prevent="addJobCard">
               <div class="form-element">
                 <div class="label-style">
                   <p class="label-name">Company</p>
@@ -27,21 +27,29 @@
                   <p class="label-name">Board</p>
                   <p class="label">Required</p>
                 </div>
-                <input
-                  type="text"
-                  id="board"
-                  v-model="newJob.card"
-                  
-                />
               </div>
+              <select name="boardName" id="board" v-model="newJob.card">
+                <option value="">Please Select One</option>
+                <option>Wishlist</option>
+                <option>Applied</option>
+                <option>Accepted</option>
+              </select>
             </form>
           </div>
 
           <div class="modal-footer">
-            <div class="buttons">
-              <input class="button" value="Discard" @click="$emit('close')"/>
-              <input id="save" value="Save"  class="button" @click="$emit('close')" />
-            </div>
+            <input
+              id="discard"
+              class="button"
+              value="Discard"
+              @click="$emit('close')"
+            />
+            <input
+              id="save"
+              class="button"
+              value="Save"
+              @click="$emit('close'), addJobCard()"
+            />
           </div>
         </div>
       </div>
@@ -54,10 +62,8 @@ export default {
   data() {
     return {
       showModal: true,
-      card: "",
       newJob: {
         id: "",
-        card: "",
       },
     };
   },
@@ -73,19 +79,9 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "montserrat", sans-serif;
-}
-
 .modal-mask {
   position: fixed;
-  z-index: 9998;
+  z-index: 99;
   top: 0;
   left: 0;
   width: 100%;
@@ -109,6 +105,7 @@ body {
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
+  z-index: 20;
 }
 h1 {
   color: #222;
@@ -151,6 +148,15 @@ p {
   border-bottom: 1px solid rgba(25, 4, 69, 0.1);
 }
 
+.modal-footer {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(25, 4, 69, 0.1);
+  padding: 5px 10px;
+}
+
 h1 {
   font-weight: 600;
   font-size: 16px;
@@ -162,6 +168,16 @@ div.form-element {
 }
 
 input {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid rgba(25, 4, 69, 0.1);
+  padding: 0px 15px;
+  box-shadow: rgba(24, 4, 69, 0.05) 0px 2px 7px;
+  height: 30px;
+  width: 100%;
+  align-items: center;
+}
+select {
   position: relative;
   box-sizing: border-box;
   border: 1px solid rgba(25, 4, 69, 0.1);
@@ -198,14 +214,7 @@ div.label-style {
   line-height: 18px;
   font-weight: 600;
 }
-div.buttons {
-  display: flex;
-  height: 50px;
-  align-items: center;
-  justify-content: flex-end;
-  border-top: 1px solid rgba(25, 4, 69, 0.1);
-  padding: 0px 10px;
-}
+
 #save {
   background-color: rgba(3, 1, 163, 0.507);
   color: white;
@@ -214,7 +223,8 @@ div.buttons {
 
 .button {
   cursor: pointer;
-
+  text-overflow: ellipsis;
+  white-space: nowrap;
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
@@ -222,6 +232,7 @@ div.buttons {
   justify-content: center;
   letter-spacing: 0px;
   font-family: Lato;
+  transition: all 0.4s ease-out 0s;
   text-align: center;
   margin: 0px;
   width: auto;
@@ -233,5 +244,6 @@ div.buttons {
   color: rgba(25, 4, 69, 0.7);
   background-color: white;
   border: 1px solid rgba(25, 4, 69, 0.2);
+  width: 68px;
 }
 </style>

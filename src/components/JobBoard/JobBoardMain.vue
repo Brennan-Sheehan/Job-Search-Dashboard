@@ -1,16 +1,17 @@
 <template>
-  <div class="job-board">
+  <section class="job-board">
     <nav class="job-board-top-nav"></nav>
     <main class="job-board-main">
       <div class="job-board-main-spacer">
-        <div class="job-board-main-spacer">
+        <div class="job-board-second-spacer">
           <div class="job-board-list">
             <list-container v-for="list in jobList" v-bind:key="list.id" v-bind:list="list"/>
+            
           </div>
         </div>
       </div>
     </main>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -34,6 +35,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin-left: 12px;
 }
 
 .job-board-top-nav {
@@ -55,10 +57,15 @@ export default {
 }
 .job-board-main {
   padding-top: 45px;
+  flex-grow: 1;
+  display: flex;
 }
 
 .job-board-main-spacer {
-  display: block;
+  width: 100%;
+  position: relative;
+}
+.job-board-second-spacer {
   width: 100%;
   height: 100%;
   position: relative;
@@ -79,13 +86,11 @@ export default {
 }
 
 .list-container {
-  display: flex;
-  flex-direction: column;
-  width: 307px;
+  width: 260px;
   vertical-align: top;
   padding: 30px 10px 0 10px;
   box-sizing: border-box;
   height: 100%;
-  
+  border-right: 1px solid rgba(0, 0, 0, 0.116);
 }
 </style>
