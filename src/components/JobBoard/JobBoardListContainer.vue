@@ -138,7 +138,7 @@ div p {
   display: inline-block;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
-  border: 1px solid rgba(25, 4, 69, 0.1);
+  border: 1px solid var(--color-border);
   width: 100%;
   border-radius: 4px;
   text-align: center;

@@ -204,16 +204,16 @@ export default {
   gap: 20px 30px;
   padding: 3rem;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.637);
+  background-color: var(--color-white);
   margin-left: 220px;
 }
 
 .main-profile header {
   display: block;
-  background-color: rgba(255, 255, 255, 0.637);
+  background-color: var(--color-white);
   border-radius: 4px;
-  border: 1px solid rgba(25, 4, 69, 0.1);
-  box-shadow: rgba(25, 4, 69, 0.05) 0px 3px 7px -1px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--box-shadow);
   box-sizing: border-box;
   position: relative;
   width: 700px;
@@ -244,7 +244,7 @@ export default {
   width: 125px;
   height: 125px;
   border-radius: 65px;
-  border: 2px solid white;
+  border: var(--color-border);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -268,7 +268,7 @@ export default {
   margin-bottom: 5px;
   text-align: left;
   font-weight: 600;
-  color: rgba(25, 4, 69, 0.7);
+  color: var(--color-dark-variant);
   font-size: 16px;
   line-height: 23px;
 }
@@ -278,7 +278,7 @@ export default {
   font-weight: 400;
   font-size: 16px;
   line-height: 23px;
-  color: rgba(25, 4, 69, 0.7);
+  color: var(--color-dark);
 }
 
 .profile-info p:nth-of-type(3) {
@@ -286,7 +286,7 @@ export default {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  color: rgba(25, 4, 69, 0.5);
+  color: var(--color-dark);
 }
 
 .profile-info p:nth-of-type(4) {
@@ -329,7 +329,7 @@ export default {
 }
 
 .skills h3{
-  border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+  border-bottom: 1px solid var(--color-border);
   padding: 0px 5px;
   height: 35px;
   margin-bottom: 10px;
@@ -337,9 +337,9 @@ export default {
 
 .skill-box {
   border-radius: 4px;
-  border: 1px solid rgba(25, 4, 69, 0.1);
-  box-shadow: rgba(25, 4, 69, 0.05) 0px 3px 7px -1px;
-  background-color: rgba(255, 255, 255, 0.637);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
   box-sizing: border-box;
   padding: 10px 10px 10px;
   display: flex;
@@ -357,12 +357,12 @@ export default {
     font-size: 13px;
     display: inline-flex;
     align-items: center;
-    color: rgba(25, 4, 69, 0.8);
-    background-color: rgb(253, 253, 255);
+    color: var(--color-dark);
+    background-color: var(--color-light);
     height: 21px;
     border-radius: 5px;
     padding: 0px 5px;
-    border: 1px solid rgba(25, 4, 69, 0.1);
+    border: 1px solid var(--color-border);
     transition: all 0.4s ease-out 0s;
     box-shadow: none;
 }
@@ -379,7 +379,7 @@ export default {
 }
 
 .bio h3 {
-  border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+  border-bottom: 1px solid var(--color-border);
   padding: 0px;
   height: 40px;
   display: flex;
@@ -398,7 +398,7 @@ export default {
 }
 
 .projects h3 {
-  border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+  border-bottom: 1px solid var(--color-border);
   padding: 0px;
   height: 40px;
   display: flex;
@@ -416,33 +416,35 @@ export default {
 
 .profile-job-card-1 {
   border-radius: 4px;
-    border: 1px solid rgba(25, 4, 69, 0.1);
-    box-shadow: rgba(25, 4, 69, 0.05) 0px 3px 7px -1px;
-    background-color: rgba(255, 255, 255, 0.637);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
     box-sizing: border-box;
     position: relative;
     display: grid;
     grid-template-rows: 190px minmax(0px, 1fr);
     grid-template-columns: 100%;
     min-height: 330px;
+    color: var(--color-dark);
 }
 
 .profile-job-card-2 {
   border-radius: 4px;
-    border: 1px solid rgba(25, 4, 69, 0.1);
-    box-shadow: rgba(25, 4, 69, 0.05) 0px 3px 7px -1px;
-    background-color: rgba(255, 255, 255, 0.637);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
     box-sizing: border-box;
     position: relative;
     display: grid;
     grid-template-rows: 190px minmax(0px, 1fr);
     grid-template-columns: 100%;
     min-height: 330px;
+    color: var(--color-dark);
 }
 
 .pic-holder {
   border-radius: 4px 4px 0px 0px;
-    border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+    border-bottom: 1px solid var(--color-border);
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -459,7 +461,7 @@ export default {
 .project-info title {
   text-align: left;
     transition: all 0.2s ease-out 0s;
-    color: rgb(24, 0, 69);
+    color: var(--color-dark);
     font-family: lato;
     letter-spacing: 0px;
     margin: 0px;
@@ -474,7 +476,7 @@ export default {
 .project-info p:first-of-type {
   text-align: left;
     transition: all 0.2s ease-out 0s;
-    color: rgb(24, 0, 69);
+    color: var(--color-dark);
     font-family: lato;
     letter-spacing: 0px;
     margin: 0px;
@@ -504,8 +506,8 @@ export default {
     font-size: 13px;
     display: inline-flex;
     align-items: center;
-    color: rgba(25, 4, 69, 0.8);
-    background-color: rgba(25, 4, 69, 0.07);
+    color: var(--color-dark);
+    background-color: var(--color-light);
     height: 21px;
     border-radius: 5px;
     padding: 0px 5px;
@@ -515,7 +517,7 @@ export default {
 }
 
 .education h3 {
-  border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+  border-bottom: 1px solid var(--color-border);
   padding: 0px;
   height: 40px;
   display: flex;
@@ -527,9 +529,9 @@ export default {
 .education-block {
   display: block;
   border-radius: 4px;
-    border: 1px solid rgba(25, 4, 69, 0.1);
-    box-shadow: rgba(25, 4, 69, 0.05) 0px 3px 7px -1px;
-    background-color: rgba(255, 255, 255, 0.637);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
     box-sizing: border-box;
     position: relative;
 }
@@ -552,12 +554,12 @@ export default {
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-    box-shadow: rgba(25, 4, 69, 0.1) 0px 4px 10px, rgba(25, 4, 69, 0.2) 0px 0px 2px;
+    box-shadow: var(--box-shadow);
     width: 64px;
     height: 64px;
     border-radius: 8px;
     overflow: hidden;
-    background-color: white;
+    background-color: var(--color-light);
     background-size: 102%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -575,7 +577,7 @@ export default {
   margin-bottom: 3px;
   text-align: left;
   transition: all 0.2s ease-out 0s;
-  color: rgb(24, 0, 69);
+  color: var(--color-dark);
   letter-spacing: 0px;
   margin: 0px 0px 3px;
   font-weight: 600;
@@ -589,12 +591,12 @@ export default {
 .education-description {
   display: block;
   padding: 15px;
-  border-top: 1px solid rgba(25, 4, 69, 0.1);
+  border-top: 1px solid var(--color-border);
 }
 
 
 .work-experience h3 {
-  border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+  border-bottom: 1px solid var(--color-border);
   padding: 0px;
   height: 40px;
   display: flex;
@@ -606,9 +608,9 @@ export default {
 .work-block {
   display: block;
   border-radius: 4px;
-    border: 1px solid rgba(25, 4, 69, 0.1);
-    box-shadow: rgba(25, 4, 69, 0.05) 0px 3px 7px -1px;
-    background-color: rgba(255, 255, 255, 0.637);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
     box-sizing: border-box;
     position: relative;
 }
@@ -631,7 +633,7 @@ export default {
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-    box-shadow: rgba(25, 4, 69, 0.1) 0px 4px 10px, rgba(25, 4, 69, 0.2) 0px 0px 2px;
+    box-shadow: var(--box-shadow);
     width: 64px;
     height: 64px;
     border-radius: 8px;
@@ -654,7 +656,7 @@ export default {
   margin-bottom: 3px;
   text-align: left;
   transition: all 0.2s ease-out 0s;
-  color: rgb(24, 0, 69);
+  color: var(--color-dark);
   letter-spacing: 0px;
   margin: 0px 0px 3px;
   font-weight: 600;
@@ -668,6 +670,6 @@ export default {
 .work-description {
   display: block;
   padding: 15px;
-  border-top: 1px solid rgba(25, 4, 69, 0.1);
+  border-top: 1px solid var(--color-border);
 }
 </style>

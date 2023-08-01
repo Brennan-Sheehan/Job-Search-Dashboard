@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 button {
-  height: 92px;
+  height: 85px;
   left: 0px;
   position: absolute;
   width: 100%;

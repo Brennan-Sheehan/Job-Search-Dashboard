@@ -6,6 +6,7 @@
         <h2>Dashboard</h2>
       </div>
       <section class="sidebar">
+             
         <router-link class="button" to="./">
           <span class="material-symbols-sharp"> grid_view </span>
           <span class="text">Dashboard</span>
@@ -38,21 +39,29 @@
           <span class="material-symbols-sharp"> dashboard_customize </span>
           <span class="text">Job Board</span>
         </router-link>
+        
+        
+        
       </section>
+      
     </aside>
   </nav>
 </template>
 
 <script>
+
+
 export default {
   name: "navigation-bar",
+  components: {
+   
+  }
 };
 </script>
 
 <style scoped>
 .side-nav {
   margin: 0 auto;
-  
 }
 
 aside {
@@ -67,15 +76,12 @@ aside .logo {
 }
 
 .logo-image {
-  
   width: 3rem;
   height: 2rem;
   background-color: rgba(252, 232, 58, 0.966);
   text-align: end;
   font-size: 26px;
   border-radius: 4px;
-
-  
 }
 
 aside .logo h2 {
@@ -91,7 +97,7 @@ aside .sidebar {
   border-radius: 15px;
   height: 88vh;
   position: relative;
-  top: 1rem;
+  top: 2rem;
 }
 
 aside .sidebar a {
@@ -123,7 +129,7 @@ aside .sidebar a span {
 }
 
 button.router-link-active::before {
-  content: '';
+  content: "";
   height: 18px;
   width: 6px;
   background-color: var(--color-primary);
@@ -133,6 +139,4 @@ span:hover {
   color: var(--color-primary);
   margin-left: 0.3rem;
 }
-
-
 </style>

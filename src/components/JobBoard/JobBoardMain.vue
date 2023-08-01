@@ -1,6 +1,5 @@
 <template>
   <section class="job-board">
-    <nav class="job-board-top-nav"></nav>
     <main class="job-board-main">
       <div class="job-board-main-spacer">
         <div class="job-board-second-spacer">
@@ -35,6 +34,8 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
+  height: 100%;
+  width: 100%;
   
 }
 
@@ -56,7 +57,6 @@ export default {
   right: 0px;
 }
 .job-board-main {
-  padding-top: 45px;
   flex-grow: 1;
   display: flex;
 
@@ -84,7 +84,7 @@ export default {
 
 
 .list-container {
-  width: 260px;
+  width: 307px;
   vertical-align: top;
   padding: 30px 10px 0 10px;
   box-sizing: border-box;
