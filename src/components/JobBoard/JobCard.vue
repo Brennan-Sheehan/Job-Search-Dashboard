@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 4px 4px 4px">
-    <button class="job-card" @click="showModal = true">
+    <button class="job-card" @click="showModal = true" :style="{backgroundColor: cards.color}">
       <Teleport to="body">
         <config-modal v-if="showModal" @close="showModal = false">
           <template v-slot:body> Hello, modal! </template>
@@ -17,7 +17,9 @@
 
 <script>
 import ConfigModal from "./JobCardModal.vue";
+
 export default {
+  
   props: ["cards"],
   components: {
     ConfigModal,
@@ -25,6 +27,7 @@ export default {
   data() {
     return {
       showModal: false,
+      bgColor: 'rgb(225, 230, 93)'
     };
   },
 };
@@ -39,8 +42,6 @@ button {
 }
 
 .job-card {
-  background-color: rgb(255, 205, 96);
-  
   cursor: pointer;
   position: relative;
   
