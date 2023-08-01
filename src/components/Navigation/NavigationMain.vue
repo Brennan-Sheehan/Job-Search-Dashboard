@@ -51,36 +51,12 @@ export default {
 
 <style scoped>
 .side-nav {
-  display: flex;
-  align-items: start;
-  justify-content: start;
-  padding: 0px;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  width: 210px;
-  z-index: 3;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-direction: column;
-  box-sizing: border-box;
+  margin: 0 auto;
+  
 }
 
 aside {
-  flex-grow: 1;
-  overflow: auto;
-  width: 96%;
-  box-sizing: border-box;
-  display: grid;
-  grid-auto-flow: row;
-  grid-auto-rows: max-content;
-  grid-template-columns: 100%;
-  gap: 0px;
-  margin-left: 10px;
-  background-color: var(--primary);
-  box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
-  border-radius: 15px;
+  height: 100vh;
 }
 
 aside .logo {
@@ -110,19 +86,18 @@ aside .logo h2 {
 aside .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: var(--primary);
-  box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
   border-radius: 15px;
-  height: 100vh;
+  height: 88vh;
   position: relative;
   top: 1rem;
-  border-right: 1px solid rgb(87, 87, 87);
 }
 
 aside .sidebar a {
   display: flex;
   align-items: center;
-  color: var(--text);
+  color: var(--color-info-dark);
   height: 3.7rem;
   gap: 1rem;
   position: relative;
@@ -130,7 +105,7 @@ aside .sidebar a {
 }
 
 aside .sidebar a span {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   font-size: 1.6rem;
   font-size: 22px;
 }
@@ -140,25 +115,24 @@ aside .sidebar a span {
   margin-left: 0px;
 }
 
-aside .sidebar a.router-link-active {
+.button.router-link-active {
   width: 100%;
-  color: white;
-  background-color: var(--secondary);
-  border-radius: 15px;
+  color: var(--color-primary);
+  background-color: var(--color-light);
+  margin-left: 0;
 }
 
-
-
-aside .sidebar a.router-link-active span {
-  color: var(--text);
+button.router-link-active::before {
+  content: '';
+  height: 18px;
+  width: 6px;
+  background-color: var(--color-primary);
 }
 
-aside .sidebar a:hover {
-  background-color: var(--secondary);
-  border-radius: 5px;
-}
-
-aside .sidebar a:hover span {
+span:hover {
+  color: var(--color-primary);
   margin-left: 0.3rem;
 }
+
+
 </style>

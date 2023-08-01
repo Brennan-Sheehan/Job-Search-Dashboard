@@ -34,8 +34,8 @@ export default {
 .job-board {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  margin-left: 12px;
+  margin-left: 2rem;
+  
 }
 
 .job-board-top-nav {
@@ -59,6 +59,7 @@ export default {
   padding-top: 45px;
   flex-grow: 1;
   display: flex;
+
 }
 
 .job-board-main-spacer {
@@ -75,15 +76,12 @@ export default {
   top: 0px;
   bottom: 0px;
   display: flex;
-  background-color: rgb(253, 253, 255);
   flex-direction: row;
-  
+  border-radius: 10px;
+  gap: 5px;
+  box-shadow: var(--box-shadow);
 }
 
-
-.list-containter:first-of-type {
-  border-left: none;
-}
 
 .list-container {
   width: 260px;
@@ -91,6 +89,8 @@ export default {
   padding: 30px 10px 0 10px;
   box-sizing: border-box;
   height: 100%;
-  border-right: 1px solid rgba(0, 0, 0, 0.116);
+  border: 1px solid rgba(0, 0, 0, 0.116);
+  
+  
 }
 </style>

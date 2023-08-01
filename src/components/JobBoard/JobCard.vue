@@ -40,11 +40,13 @@ button {
 
 .job-card {
   background-color: rgb(255, 205, 96);
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  
   cursor: pointer;
   position: relative;
-  border: 1px solid rgba(25, 4, 69, 0.1);
+  
+  border-right: 1px solid rgba(25, 4, 69, 0.1);
+  border-bottom: 1px solid rgba(25, 4, 69, 0.1);
+  box-shadow: var(--box-shadow-cards);
   display: flex;
   flex-direction: column;
   border-radius: 7px;

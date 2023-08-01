@@ -1,6 +1,6 @@
 <template>
   
-    <div style="height: 100%">
+    <div class="main" style="height: 100%">
       <div
         style="
           display: flex;
@@ -23,16 +23,13 @@ import NavBar from "./components/Navigation/NavigationMain.vue";
 </script>
 
 <style>
-#app {
+.main {
   height: 100%;
+  display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 12rem auto;
 }
 
-.router {
-  flex-grow: 1;
-  position: relative;
-  display: flex;
-  min-width: 0px;
-  padding-left: 220px;
-  padding-left: 210px;
-}
 </style>

@@ -86,7 +86,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-primary-modal);
   display: table;
   transition: opacity 0.3s ease;
 }
@@ -102,8 +102,8 @@ export default {
   padding: 20px 30px;
   padding-bottom: 40px;
   background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
   z-index: 20;
 }
@@ -172,7 +172,7 @@ input {
   box-sizing: border-box;
   border: 1px solid rgba(25, 4, 69, 0.1);
   padding: 0px 15px;
-  box-shadow: rgba(24, 4, 69, 0.05) 0px 2px 7px;
+  box-shadow: var(--box-shadow);
   height: 30px;
   width: 100%;
   align-items: center;
@@ -182,7 +182,7 @@ select {
   box-sizing: border-box;
   border: 1px solid rgba(25, 4, 69, 0.1);
   padding: 0px 15px;
-  box-shadow: rgba(24, 4, 69, 0.05) 0px 2px 7px;
+  box-shadow: var(--box-shadow);
   height: 30px;
   width: 100%;
   align-items: center;
@@ -197,7 +197,7 @@ div.label-style {
   font-family: lato;
   letter-spacing: 0px;
   margin: 0px;
-  color: rgba(24, 0, 69, 0.479);
+  color: var(--color-dark);
   font-size: 13px;
   line-height: 18px;
   font-weight: 600;
@@ -209,15 +209,15 @@ div.label-style {
   font-family: lato;
   letter-spacing: 0px;
   margin: 0px;
-  color: rgb(24, 0, 69);
+  color: var(--color-dark);
   font-size: 14px;
   line-height: 18px;
   font-weight: 600;
 }
 
 #save {
-  background-color: rgba(3, 1, 163, 0.507);
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   margin-left: 7px;
 }
 
@@ -241,8 +241,8 @@ div.label-style {
   padding: 0px 8px;
   height: 28px;
   font-size: 13px;
-  color: rgba(25, 4, 69, 0.7);
-  background-color: white;
+  color: var(--color-primary);
+  background-color: var(--color-white);
   border: 1px solid rgba(25, 4, 69, 0.2);
   width: 68px;
 }

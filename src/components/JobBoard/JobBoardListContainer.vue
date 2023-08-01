@@ -81,7 +81,10 @@ export default {
   display: flex;
   flex-direction: column;
   z-index: 2;
-  background-color: rgb(253, 253, 255);
+  background-color: var(--color-white);
+  border-radius: 10px;
+  color: var(--color-dark);
+  
 }
 
 
@@ -114,7 +117,6 @@ export default {
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
-  
 }
 
 div p {
@@ -124,7 +126,7 @@ div p {
   margin: 0px;
   text-transform: uppercase;
   text-align: center;
-  color: rgba(25, 4, 69, 0.5);
+  color: var(--color-dark);
   font-size: 14px;
   line-height: 21px;
 }
@@ -134,13 +136,13 @@ div p {
   vertical-align: middle;
   font-size: 25px;
   display: inline-block;
-  background-color: #fff;
-  box-shadow: 0px 2px 7px rgba(25, 4, 69, 0.05);
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
   border: 1px solid rgba(25, 4, 69, 0.1);
   width: 100%;
   border-radius: 4px;
   text-align: center;
-  color: rgba(25, 4, 69, 0.5);
+  color: var(--color-dark);
   transition: all 0.5s ease;
   cursor: pointer;
 }
