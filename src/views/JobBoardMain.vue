@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ListContainer from "./JobBoardListContainer.vue";
+import ListContainer from "../components/JobBoard/JobBoardListContainer.vue";
 export default {
   
   components: {

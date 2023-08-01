@@ -6,56 +6,63 @@
         <h2>Dashboard</h2>
       </div>
       <section class="sidebar">
-             
-        <router-link class="button" to="./">
-          <span class="material-symbols-sharp"> grid_view </span>
-          <span class="text">Dashboard</span>
+        <router-link class="button" :to="{name: 'dashboard'}">
+          <div class="container">
+            <span class="material-symbols-sharp"> grid_view </span>
+            <span class="text">Dashboard</span>
+          </div>
         </router-link>
-        <router-link class="button" to="./profile">
-          <span class="material-symbols-sharp"> account_circle </span>
-          <span class="text">Profile</span>
+        <router-link class="button" :to="{name: 'profile'}">
+          <div class="container">
+            <span class="material-symbols-sharp"> account_circle </span>
+            <span class="text">Profile</span>
+          </div>
         </router-link>
         <router-link class="button" to="./email">
-          <span class="material-symbols-sharp"> mail </span>
-          <span class="text">Email</span>
+          <div class="container">
+            <span class="material-symbols-sharp"> mail </span>
+            <span class="text">Email</span>
+          </div>
         </router-link>
         <router-link class="button" to="./calendar">
-          <span class="material-symbols-sharp"> calendar_month </span>
-          <span class="text">Calendar</span>
+          <div class="container">
+            <span class="material-symbols-sharp"> calendar_month </span>
+            <span class="text">Calendar</span>
+          </div>
         </router-link>
-        <router-link class="button" to="./contacts">
-          <span class="material-symbols-sharp"> contacts </span>
-          <span class="text">Contacts</span>
+        <router-link class="button" :to="{name: 'contacts'}">
+          <div class="container">
+            <span class="material-symbols-sharp"> contacts </span>
+            <span class="text">Contacts</span>
+          </div>
         </router-link>
         <router-link class="button" to="./documents">
-          <span class="material-symbols-sharp"> description </span>
-          <span class="text">Documents</span>
+          <div class="container">
+            <span class="material-symbols-sharp"> description </span>
+            <span class="text">Documents</span>
+          </div>
         </router-link>
         <router-link class="button" to="./goals">
-          <span class="material-symbols-sharp"> task_alt </span>
-          <span class="text">Goals</span>
+          <div class="container">
+            <span class="material-symbols-sharp"> task_alt </span>
+            <span class="text">Goals</span>
+          </div>
         </router-link>
-        <router-link class="button" to="./job-board">
-          <span class="material-symbols-sharp"> dashboard_customize </span>
-          <span class="text">Job Board</span>
+        <router-link class="button" :to="{name: 'job-board'}">
+          <div class="container">
+            <span class="material-symbols-sharp"> dashboard_customize </span>
+            <span class="text">Job Board</span>
+          </div>
         </router-link>
-        
-        
-        
       </section>
-      
     </aside>
   </nav>
 </template>
 
 <script>
-
-
 export default {
   name: "navigation-bar",
-  components: {
-   
-  }
+  components: {},
 };
 </script>
 
@@ -78,7 +85,7 @@ aside .logo {
 .logo-image {
   width: 3rem;
   height: 2rem;
-  background-color: rgba(252, 232, 58, 0.966);
+  background-color: rgba(255, 230, 0, 0.808);
   text-align: end;
   font-size: 26px;
   border-radius: 4px;
@@ -135,8 +142,8 @@ button.router-link-active::before {
   background-color: var(--color-primary);
 }
 
-span:hover {
+.container:hover {
   color: var(--color-primary);
-  margin-left: 0.3rem;
+  margin-left: 0.6rem;
 }
 </style>

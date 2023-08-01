@@ -1,25 +1,31 @@
 import {createRouter, createWebHistory} from 'vue-router'
-
-
+import Contacts from '../views/ContactsMain.vue'
+import JobBoard from '../views/JobBoardMain'
+import ProfileMain from '../views/ProfileMain'
+import HomeMain from '../views/HomeMain.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
             path: '/',
-            component: () => import('../views/HomeMain.vue')
+            name: 'dashboard',
+            component: HomeMain
         },
         {
             path: '/job-board',
-            component: () => import('../components/JobBoard/JobBoardMain')
+            name: 'job-board',
+            component: JobBoard
         },
         {
             path: '/profile',
-            component: () => import('../components/ProfileMain')
+            name: 'profile',
+            component: ProfileMain
         },
         {
-            path: '/job-info',
-            component: () => import('../components/JobBoard/JobCardModal.vue')
+            path: '/contacts',
+            name: 'contacts',
+            component: Contacts
         }
     ]
 })

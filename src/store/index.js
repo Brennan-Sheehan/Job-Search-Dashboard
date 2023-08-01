@@ -33,6 +33,28 @@ const store = createStore({
           
         }
       ],
+      contacts: [
+        {
+          id:1,
+          name: 'Brennan Sheehan',
+          title: 'CEO',
+          company: 'B Enterprise',
+          location: 'Charleston, SC',
+          email: 'brennan.sheehan@gmail.com',
+          phone: '630-453-1686'
+          
+        },
+        {
+          id:1,
+          name: 'Brennan Sheehan',
+          title: 'CEO',
+          company: 'B Enterprise',
+          location: 'Charleston, SC',
+          email: 'brennan.sheehan@gmail.com',
+          phone: '630-453-1686'
+          
+        }
+      ]
     };
   },
   mutations: {

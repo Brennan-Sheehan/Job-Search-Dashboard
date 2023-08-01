@@ -176,7 +176,7 @@ input {
   height: 30px;
   width: 100%;
   align-items: center;
-  background-color: var(--color-background);
+  background-color: var(--color-light);
   color: var(--color-dark);
 }
 select {
@@ -188,9 +188,11 @@ select {
   height: 30px;
   width: 100%;
   align-items: center;
-  background-color: var(--color-background);
-  color: var(--color-dark);
+  background-color: var(--color-light);
+  color: var(--color-white);
 }
+
+
 div.label-style {
   display: flex;
   flex-grow: 1;

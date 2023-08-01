@@ -101,20 +101,20 @@ export default {
   margin: 0px auto;
   padding: 20px 30px;
   padding-bottom: 40px;
-  background-color: #fff;
+  background-color: var(--color-background);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
   z-index: 20;
 }
 h1 {
-  color: #222;
+  color: var(--color-dark);
   font-size: 32px;
   font-weight: 900;
   margin-bottom: 15px;
 }
 p {
-  color: #666;
+  color: var(--color-dark);
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 15px;
@@ -176,6 +176,8 @@ input {
   height: 30px;
   width: 100%;
   align-items: center;
+  background-color: var(--color-light);
+  color: var(--color-dark);
 }
 select {
   position: relative;
@@ -186,7 +188,11 @@ select {
   height: 30px;
   width: 100%;
   align-items: center;
+  background-color: var(--color-light);
+  color: var(--color-white);
 }
+
+
 div.label-style {
   display: flex;
   flex-grow: 1;
