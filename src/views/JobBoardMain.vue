@@ -4,8 +4,8 @@
       <div class="job-board-main-spacer">
         <div class="job-board-second-spacer">
           <div class="job-board-list">
-            <list-container v-for="list in jobList" v-bind:key="list.id" v-bind:list="list"/>
-            
+            <list-container v-for="jobBoardLists in this.$store.state.jobBoardLists" v-bind:key="jobBoardLists.id" v-bind:jobBoardLists="jobBoardLists"/>
+            <button @click="addJobList()">+ ADD LIST</button>
           </div>
         </div>
       </div>
@@ -15,16 +15,73 @@
 
 <script>
 import ListContainer from "../components/JobBoard/JobBoardListContainer.vue";
+import jobBoardService from "../services/JobBoardService"
 export default {
   
   components: {
     ListContainer,
   },
-  props: ['list'],
-  computed: {
-    jobList() {
-      return this.$store.state.list
+  data() {
+    return {
+      newList: {
+        id: this.$store.state.jobBoardLists.length,
+        title: 'List Title',
+        cards: [],
+        cardCount: 0
+      }
     }
+  },
+  props: ['jobBoardLists'],
+  
+  methods: {
+    addJobList() {
+
+      jobBoardService.addJobList(this.newList)
+        .then(response => {
+          if (response.status === 201) {
+            this.getJobBoard()
+            console.log("hi")
+            
+
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.errorMsg =
+              "Error adding topic. Response received was '" +
+              error.response.statusText +
+              "'.";
+          } else if (error.request) {
+            this.errorMsg = "Error adding topic. Server could not be reached.";
+          } else {
+            this.errorMsg = "Error adding topic. Request could not be created.";
+          }
+        });
+    },
+    getJobBoard() {
+      jobBoardService.list()
+      .then(response => {
+        if(response.status === 200) {
+          this.$store.commit('SET_LIST', response.data)
+        }
+        
+      })
+      .catch((error) => {
+          if (error.response) {
+            this.errorMsg =
+              "Error adding topic. Response received was '" +
+              error.response.statusText +
+              "'.";
+          } else if (error.request) {
+            this.errorMsg = "Error adding topic. Server could not be reached.";
+          } else {
+            this.errorMsg = "Error adding topic. Request could not be created.";
+          }
+        });
+    }
+  },
+  created() {
+    this.getJobBoard();
   }
 };
 </script>
@@ -92,5 +149,9 @@ export default {
   border: 1px solid rgba(0, 0, 0, 0.116);
   
   
+}
+button {
+  width: 307px;
+  height: 80px;
 }
 </style>

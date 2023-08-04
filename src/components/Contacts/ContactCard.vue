@@ -20,9 +20,15 @@
         <span class="material-symbols-sharp" style="margin-right: 15px, margin-top: 3px"> account_circle </span>
       </div>
       <div style="margin-left: 15px">
-        <p style="margin-bottom: 5px">
-          {{ contacts.name }}
+        <div style="display:flex">
+          <p style="margin-bottom: 5px; margin-right: 5px">
+          {{ contacts.firstName }}
         </p>
+        <p style="margin-bottom: 5px">
+          {{ contacts.lastName }}
+        </p>
+        </div>
+        
         <p style="margin-bottom: 5px">
           {{ contacts.title }}
         </p>

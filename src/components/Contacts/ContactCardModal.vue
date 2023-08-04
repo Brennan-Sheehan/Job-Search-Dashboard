@@ -4,35 +4,64 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
-            <h1 class="title">Add Job</h1>
+            <h1 class="title">Save New Contact</h1>
           </div>
           <div class="modal-body">
-            <form v-on:submit.prevent="addJobCard">
-              <div class="form-element">
-                <div class="label-style">
-                  <p class="label-name">Company</p>
-                  <p class="label">Required</p>
+            <form v-on:submit.prevent="addContactCard">
+              <div class="form-element" >
+                <div>
+                  <div class="label-style">
+                    <p class="label-name">First Name</p>
+                    <p class="label">Required</p>
+                  </div>
+                  <input type="text" id="company" required v-model="newContact.firstName" />
+                </div>
+                <div style="margin-left: 20px">
+                  <div class="label-style">
+                    <p class="label-name">Last Name</p>
+                    <p class="label">Required</p>
+                  </div>
+                  <input type="text" id="company" required v-model="newContact.lastName" />
                 </div>
               </div>
-              <input type="text" id="company" v-model="newJob.company" />
+
               <div class="form-element">
                 <div class="label-style">
                   <p class="label-name">Job Title</p>
-                  <p class="label">Required</p>
                 </div>
               </div>
-              <input type="text" id="job-title" v-model="newJob.title" />
+              <input type="text" id="job-title" v-model="newContact.title" />
+
+              <div class="form-element">
+                <div>
+                  <div class="label-style">
+                    <p class="label-name">Company</p>
+                    
+                  </div>
+                  <input type="text" id="company" v-model="newContact.company" />
+                </div>
+                <div style="margin-left: 20px">
+                  <div class="label-style">
+                    <p class="label-name">Location</p>
+                    
+                  </div>
+                  <input type="text" id="company" v-model="newContact.location" />
+                </div>
+              </div>
+
               <div class="form-element">
                 <div class="label-style">
-                  <p class="label-name">Board</p>
-                  <p class="label">Required</p>
+                  <p class="label-name">Email</p>
                 </div>
               </div>
-              <select name="boardName" id="board" v-model="newJob.card">
-                <option>Wishlist</option>
-                <option>Applied</option>
-                <option>Accepted</option>
-              </select>
+              <input type="text" id="job-title" v-model="newContact.email" />
+
+              <div class="form-element">
+                <div class="label-style">
+                  <p class="label-name">Phone</p>
+                </div>
+              </div>
+              <input type="text" id="job-title" v-model="newContact.phone" />
             </form>
           </div>
 
@@ -41,12 +70,14 @@
               id="discard"
               class="button"
               value="Discard"
+              type="submit"
               @click="$emit('close')"
             />
             <input
               id="save"
               class="button"
               value="Save"
+              type="submit"
               @click="$emit('close'), addJobCard()"
             />
           </div>
@@ -57,28 +88,28 @@
 </template>
 
 <script>
-// import JobBoardService from '@/services/JobBoardService';
-
 export default {
   data() {
     return {
       showModal: true,
-      newJob: {
-        id:this.$store.state.jobCards.length + 1, 
-      },
+      newContact: {
+          id: "",
+          title: '',
+          company: '',
+          location: '',
+          email: '',
+          phone: ''
+      }
     };
   },
   methods: {
     addJobCard() {
-      this.$store.commit('ADD_JOB_CARD', this.newJob)
+      console.log(this.newJob);
+
+      this.$store.commit("ADD_CONTACT_CARD", this.newContact);
     },
-    getListId() {
-      const currentCardList = this.$store.state.jobBoardLists.find(d => d.title === this.newJob.card)
-      return currentCardList
-    }
   },
   props: ["cards"],
-  
 };
 </script>
 
@@ -101,7 +132,7 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
   padding-bottom: 40px;
@@ -158,7 +189,7 @@ p {
   align-items: center;
   justify-content: flex-end;
   border-top: 1px solid rgba(25, 4, 69, 0.1);
-  padding: 5px 10px;
+  padding: 10px 10px;
 }
 
 h1 {
@@ -169,6 +200,7 @@ h1 {
 div.form-element {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 input {
@@ -183,19 +215,6 @@ input {
   background-color: var(--color-light);
   color: var(--color-dark);
 }
-select {
-  position: relative;
-  box-sizing: border-box;
-  border: 1px solid rgba(25, 4, 69, 0.1);
-  padding: 0px 15px;
-  box-shadow: var(--box-shadow);
-  height: 30px;
-  width: 100%;
-  align-items: center;
-  background-color: var(--color-light);
-  color: var(--color-white);
-}
-
 
 div.label-style {
   display: flex;

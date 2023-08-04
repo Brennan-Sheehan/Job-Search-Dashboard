@@ -1,0 +1,4 @@
+{
+    
+    "/job-board/:id": "/job-board/:id?_embed=messages"
+}

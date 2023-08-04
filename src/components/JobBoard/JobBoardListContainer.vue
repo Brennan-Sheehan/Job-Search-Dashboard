@@ -1,20 +1,19 @@
 <template>
-  <div class="list-container" v-bind:key="list.id" style="display: flex; flex-direction:column">
+  <div class="list-container" v-bind:key="jobBoardLists.id" style="display: flex; flex-direction:column">
     <div class="list-contianer-header" style="margin: 0px 28px 30px; flex-shrink:0; flex-grow:0;display:flex; flex-direciton:row; position:relative">
       <span id="star" class="material-symbols-sharp"> star </span>
       <span class="list-contianer-title" style="display:flex; flex-direction: column;">
         <div class="list-contianer-top-box">
           <form style="postion:relative">
             <input
-              class="list-contianer-input"
+              class="list-container-input"
               type="text"
-              v-bind:placeholder="list.title"
               v-model="title"
               v-on:change.prevent="saveChanges()"
             />
           </form>
         </div>
-        <p style="letter-spacing: 1px; postion:relative; bottom:5px">{{ this.list.cardCount }} JOBS</p>
+        <p style="letter-spacing: 1px; postion:relative; bottom:5px">{{ this.listLength }} JOBS</p>
         
       </span>
     </div>
@@ -30,10 +29,9 @@
       <ul>
         <div style="width:auto; height:828px; max-width:287px; max-height:828px; overflow:hidden; position:relative">
           <job-cards
-            v-for="cards in list.cards"
+            v-for="cards in getListCards()"
             v-bind:key="cards.id"
             v-bind:cards="cards"
-            
           />
         </div>
           
@@ -43,15 +41,18 @@
 </template>
 
 <script>
+import JobBoardService from '@/services/JobBoardService';
 import JobCards from "./JobCard.vue";
 import CreateJobModal from "./JobCardCreateModal.vue";
+
+
 
 export default {
   data() {
     return {
-      title: "",
-      showCreateModal: false,
+      title: this.jobBoardLists.title,
       showModal: false,
+      
     };
   },
   components: {
@@ -59,20 +60,73 @@ export default {
     CreateJobModal,
 
   },
-  props: ["list"],
+  props: ["jobBoardLists"],
   methods: {
-    saveChanges() {
-      this.$store.commit("CHANGE_LIST_TITLE", this.list.id, this.title);
+    getListCards() {
+      const newCards = this.$store.state.jobCards.filter(d => d.jobBoardId === this.jobBoardLists.id)
+      return newCards
     },
-    jobList() {
-      return this.$store.state.list.cards;
+    saveChanges() {
+      const list = {
+        id: this.jobBoardLists.id,
+        title: this.title,
+        cardCount: this.jobBoardLists.cardCount
+      }
+      JobBoardService.jobListUpdate(list)
+        .then(response => {
+          if (response.status === 200) {
+            console.log("Worked")
+          }
+        })
+        .catch(error => {
+        if (error.response) {
+              this.errorMsg =
+                "Error adding topic. Response received was '" +
+                error.response.statusText +
+                "'.";
+            } else if (error.request) {
+              this.errorMsg =
+                "Error adding topic. Server could not be reached.";
+            } else {
+              this.errorMsg =
+                "Error adding topic. Request could not be created.";
+            }
+      })
+    },
+    listAllCards() {
+      console.log("get cards method")
+      JobBoardService.listCards()
+      .then(response => {
+        if(response.status < 400) {
+          this.$store.commit('SET_CARD_LIST', response.data)
+          console.log("worked")
+        }
+        
+      })
+      .catch((error) => {
+          if (error.response) {
+            this.errorMsg =
+              "Error adding topic. Response received was '" +
+              error.response.statusText +
+              "'.";
+          } else if (error.request) {
+            this.errorMsg = "Error adding topic. Server could not be reached.";
+          } else {
+            this.errorMsg = "Error adding topic. Request could not be created.";
+          }
+        });
     },
   },
   computed: {
     listLength() {
-      return this.list.cards;
+      const newArray = this.$store.state.jobCards.filter(d => d.jobBoardId === this.jobBoardLists.id)
+      return newArray.length
     },
   },
+  created() {
+    this.listAllCards()
+  }
+  
 };
 </script>
 
@@ -94,15 +148,15 @@ export default {
   margin-top: 15px;
   align-items: center;
 }
-.list-contianer-title {
+.list-container-title {
   display: flex;
   flex-direction: column;
 }
-.list-contianer-top-box {
+.list-container-top-box {
   transition: all 0.4s ease-out 0s;
 }
 
-.list-contianer-input {
+.list-container-input {
   background-color: transparent;
   position: relative;
   display: flex;
