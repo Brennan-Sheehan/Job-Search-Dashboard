@@ -28,10 +28,9 @@
                   <p class="label">Required</p>
                 </div>
               </div>
-              <select name="boardName" id="board" v-model="newJob.card">
-                <option>Wishlist</option>
-                <option>Applied</option>
-                <option>Accepted</option>
+              <select name="boardName" id="board" v-model="newJob.list">
+                <option v-for="option in options" :key="option.id" >{{option.title}}</option>
+                
               </select>
             </form>
           </div>
@@ -64,17 +63,19 @@ export default {
     return {
       showModal: true,
       newJob: {
-        id:this.$store.state.jobCards.length + 1, 
+        id:this.$store.state.jobCards.length + 1,
+        list: '', 
       },
+      options: this.$store.state.jobBoardLists,
+      selected: ''
     };
   },
   methods: {
     addJobCard() {
-      this.$store.commit('ADD_JOB_CARD', this.newJob)
-    },
-    getListId() {
-      const currentCardList = this.$store.state.jobBoardLists.find(d => d.title === this.newJob.card)
-      return currentCardList
+      const findJobList = this.$store.state.jobBoardLists.find((d) => d.title === this.newJob.list);
+      this.newJob.jobBoardId = findJobList.id;
+      this.newJob.color = "hsl("+ Math.floor(Math.random() * 360) + ',60%' + ',50%)'
+      this.$store.dispatch('ADD_JOB_CARD', this.newJob)
     }
   },
   props: ["cards"],

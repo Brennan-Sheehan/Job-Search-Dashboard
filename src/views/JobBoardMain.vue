@@ -4,7 +4,7 @@
       <div class="job-board-main-spacer">
         <div class="job-board-second-spacer">
           <div class="job-board-list">
-            <list-container v-for="jobBoardLists in this.$store.state.jobBoardLists" v-bind:key="jobBoardLists.id" v-bind:jobBoardLists="jobBoardLists"/>
+            <list-container v-for="jobBoardLists in getJobBoardList" v-bind:key="jobBoardLists.id" v-bind:jobBoardLists="jobBoardLists"/>
             <button @click="addJobList()">+ ADD LIST</button>
           </div>
         </div>
@@ -15,7 +15,7 @@
 
 <script>
 import ListContainer from "../components/JobBoard/JobBoardListContainer.vue";
-import jobBoardService from "../services/JobBoardService"
+import {mapGetters} from 'vuex'
 export default {
   
   components: {
@@ -35,53 +35,19 @@ export default {
   
   methods: {
     addJobList() {
-
-      jobBoardService.addJobList(this.newList)
-        .then(response => {
-          if (response.status === 201) {
-            this.getJobBoard()
-            console.log("hi")
-            
-
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            this.errorMsg =
-              "Error adding topic. Response received was '" +
-              error.response.statusText +
-              "'.";
-          } else if (error.request) {
-            this.errorMsg = "Error adding topic. Server could not be reached.";
-          } else {
-            this.errorMsg = "Error adding topic. Request could not be created.";
-          }
-        });
+      this.$store.dispatch('ADD_JOB_LIST', this.newList)
     },
     getJobBoard() {
-      jobBoardService.list()
-      .then(response => {
-        if(response.status === 200) {
-          this.$store.commit('SET_LIST', response.data)
-        }
-        
-      })
-      .catch((error) => {
-          if (error.response) {
-            this.errorMsg =
-              "Error adding topic. Response received was '" +
-              error.response.statusText +
-              "'.";
-          } else if (error.request) {
-            this.errorMsg = "Error adding topic. Server could not be reached.";
-          } else {
-            this.errorMsg = "Error adding topic. Request could not be created.";
-          }
-        });
+      this.$store.dispatch('GET_JOB_LIST')
     }
   },
   created() {
     this.getJobBoard();
+  },
+  computed: {
+    ...mapGetters([
+      'getJobBoardList',
+    ])
   }
 };
 </script>
@@ -131,7 +97,7 @@ export default {
 .job-board-list {
   position: absolute;
   top: 0px;
-  bottom: 0px;
+  bottom: 15px;
   display: flex;
   flex-direction: row;
   border-radius: 10px;
@@ -143,7 +109,7 @@ export default {
 .list-container {
   width: 307px;
   vertical-align: top;
-  padding: 30px 10px 0 10px;
+  padding: 30px 10px 10px 10px;
   box-sizing: border-box;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.116);

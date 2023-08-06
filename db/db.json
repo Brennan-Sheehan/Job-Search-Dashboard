@@ -2,22 +2,22 @@
   "job-board": [
     {
       "id": 1,
-      "title": "Wishlist",
+      "title": "Brejjnnan List",
       "cardCount": 4
     },
     {
       "id": 2,
-      "title": "Applied",
+      "title": "Brejjndfgdfgnan List",
       "cardCount": 2
     },
     {
       "id": 3,
-      "title": "Accepted",
+      "title": "Brejjnnan List",
       "cardCount": 3
     },
     {
       "id": 4,
-      "title": "Brennans list",
+      "title": "Bn List",
       "cardCount": 0
     },
     {
@@ -29,6 +29,29 @@
       "id": 6,
       "title": "List Title",
       "cards": [],
+      "cardCount": 0
+    },
+    {
+      "id": 7,
+      "title": "List Title",
+      "cards": [],
+      "cardCount": 0
+    },
+    {
+      "id": 8,
+      "title": "List Title",
+      "cards": [],
+      "cardCount": 0
+    },
+    {
+      "id": 9,
+      "title": "List Title",
+      "cards": [],
+      "cardCount": 0
+    },
+    {
+      "id": 10,
+      "title": "Lisasdasdat Title",
       "cardCount": 0
     }
   ],
@@ -108,6 +131,62 @@
       "card": "Accepted",
       "jobBoardId": 3,
       "color": "hsl(112,80%,80%)"
+    },
+    {
+      "id": 11,
+      "company": "asdasd",
+      "title": "asdasd",
+      "card": "Wishlist",
+      "jobBoardId": 1,
+      "color": "hsl(36,80%,80%)"
+    },
+    {
+      "id": 12,
+      "company": "ascasc",
+      "title": "ascasc",
+      "card": "Applied",
+      "jobBoardId": 2,
+      "color": "hsl(17,80%,80%)"
+    },
+    {
+      "id": 13,
+      "company": "sad",
+      "title": "asda",
+      "card": "Wishlist",
+      "jobBoardId": 1,
+      "color": "hsl(158,80%,80%)"
+    },
+    {
+      "id": 14,
+      "company": "asda",
+      "title": "asdasd",
+      "card": "Accepted",
+      "jobBoardId": 3,
+      "color": "hsl(36,80%,80%)"
+    },
+    {
+      "id": 15,
+      "company": "asdasd",
+      "title": "asdasd",
+      "card": "Accepted",
+      "jobBoardId": 3,
+      "color": "hsl(86,80%,80%)"
+    },
+    {
+      "id": 16,
+      "company": "asdasd",
+      "title": "asdasd",
+      "card": "Wishlist",
+      "jobBoardId": 1,
+      "color": "hsl(118,80%,80%)"
+    },
+    {
+      "id": 17,
+      "list": "Brejjnnan List",
+      "company": "asdas",
+      "title": "asdasd",
+      "jobBoardId": 1,
+      "color": "hsl(358,60%,50%)"
     }
   ]
 }

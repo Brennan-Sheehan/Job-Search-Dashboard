@@ -1,20 +1,38 @@
 <template>
-  <div class="list-container" v-bind:key="jobBoardLists.id" style="display: flex; flex-direction:column">
-    <div class="list-contianer-header" style="margin: 0px 28px 30px; flex-shrink:0; flex-grow:0;display:flex; flex-direciton:row; position:relative">
+  <div
+    class="list-container"
+    v-bind:key="jobBoardLists.id"
+    style="display: flex; flex-direction: column"
+  >
+    <div
+      class="list-contianer-header"
+      style="
+        margin: 0px 28px 30px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: flex;
+        flex-direciton: row;
+        position: relative;
+      "
+    >
       <span id="star" class="material-symbols-sharp"> star </span>
-      <span class="list-contianer-title" style="display:flex; flex-direction: column;">
+      <span
+        class="list-contianer-title"
+        style="display: flex; flex-direction: column"
+      >
         <div class="list-contianer-top-box">
-          <form style="postion:relative">
+          <form style="postion: relative">
             <input
               class="list-container-input"
               type="text"
-              v-model="title"
-              v-on:change.prevent="saveChanges()"
+              v-model="list.title"
+              v-on:change.prevent="UPDATE_JOB_LIST(this.list)"
             />
           </form>
         </div>
-        <p style="letter-spacing: 1px; postion:relative; bottom:5px">{{ this.listLength }} JOBS</p>
-        
+        <p style="letter-spacing: 1px; postion: relative; bottom: 5px">
+          {{ this.listLength }} JOBS
+        </p>
       </span>
     </div>
     <div class="add-job-block-container" style="flex: 0 0 45px">
@@ -25,108 +43,87 @@
         </create-job-modal>
       </Teleport>
     </div>
-    <div class="job-board-cards" style="flex-grow:1; position:relative">
-      <ul>
-        <div style="width:auto; height:828px; max-width:287px; max-height:828px; overflow:hidden; position:relative">
+    <div class="job-board-cards" style="flex-grow: 1; position: relative">
+      <ul
+      @drop.prevent="onDrop($event, this.jobBoardLists)"
+      @dragenter.prevent
+      @dragover.prevent>
+        
+        <div
+          style="
+            width: auto;
+            height: 828px;
+            max-width: 287px;
+            max-height: 828px;
+            overflow: hidden;
+            position: relative;
+          "
+        >
           <job-cards
-            v-for="cards in getListCards()"
+            v-for="cards in getCards(this.jobBoardLists)"
             v-bind:key="cards.id"
             v-bind:cards="cards"
+            draggable="true"
+            @dragstart="startDrag($event, cards)"
           />
-        </div>
           
+        <div @drop.prevent="dropLink" @dragenter="checkDrop" @dragover="checkDrop"></div>
+        </div>
+        
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import JobBoardService from '@/services/JobBoardService';
+// import JobBoardService from '@/services/JobBoardService';
 import JobCards from "./JobCard.vue";
 import CreateJobModal from "./JobCardCreateModal.vue";
-
-
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      title: this.jobBoardLists.title,
       showModal: false,
-      
+      list: {
+        id: this.jobBoardLists.id,
+        title: this.jobBoardLists.title,
+        cardCount: this.jobBoardLists.cardCount,
+      },
     };
   },
   components: {
     JobCards,
     CreateJobModal,
-
   },
-  props: ["jobBoardLists"],
+  props: ["jobBoardLists", 'jobCards'],
   methods: {
-    getListCards() {
-      const newCards = this.$store.state.jobCards.filter(d => d.jobBoardId === this.jobBoardLists.id)
-      return newCards
+    ...mapActions(["UPDATE_JOB_LIST", "GET_CARD_LIST"]),
+    startDrag(evt, cards) {
+      console.log(cards)
+      evt.dataTransfer.dropEffect = "move";
+      evt.dataTransfer.effectAllowed = "move";
+      evt.dataTransfer.setData("itemID", cards.id);
     },
-    saveChanges() {
-      const list = {
-        id: this.jobBoardLists.id,
-        title: this.title,
-        cardCount: this.jobBoardLists.cardCount
-      }
-      JobBoardService.jobListUpdate(list)
-        .then(response => {
-          if (response.status === 200) {
-            console.log("Worked")
-          }
-        })
-        .catch(error => {
-        if (error.response) {
-              this.errorMsg =
-                "Error adding topic. Response received was '" +
-                error.response.statusText +
-                "'.";
-            } else if (error.request) {
-              this.errorMsg =
-                "Error adding topic. Server could not be reached.";
-            } else {
-              this.errorMsg =
-                "Error adding topic. Request could not be created.";
-            }
-      })
-    },
-    listAllCards() {
-      console.log("get cards method")
-      JobBoardService.listCards()
-      .then(response => {
-        if(response.status < 400) {
-          this.$store.commit('SET_CARD_LIST', response.data)
-          console.log("worked")
-        }
-        
-      })
-      .catch((error) => {
-          if (error.response) {
-            this.errorMsg =
-              "Error adding topic. Response received was '" +
-              error.response.statusText +
-              "'.";
-          } else if (error.request) {
-            this.errorMsg = "Error adding topic. Server could not be reached.";
-          } else {
-            this.errorMsg = "Error adding topic. Request could not be created.";
-          }
-        });
+    onDrop(evt) {
+      const newCard = evt.dataTransfer.getData("itemID");
+      const card = document.getElementById(newCard)
+      evt.target.appendChild(card)
     },
   },
   computed: {
     listLength() {
-      const newArray = this.$store.state.jobCards.filter(d => d.jobBoardId === this.jobBoardLists.id)
-      return newArray.length
+      const newArray = this.$store.state.jobCards.filter(
+        (d) => d.jobBoardId === this.jobBoardLists.id
+      );
+      return newArray.length;
     },
+    ...mapGetters(["getCards"]),
   },
   created() {
-    this.listAllCards()
-  }
-  
+    this.GET_CARD_LIST();
+  },
 };
 </script>
 
@@ -138,9 +135,7 @@ export default {
   background-color: var(--color-white);
   border-radius: 10px;
   color: var(--color-dark);
-  
 }
-
 
 #star {
   width: 18px;
@@ -201,17 +196,15 @@ div p {
   cursor: pointer;
 }
 
-
 .job-board-cards ul {
   box-sizing: border-box;
-    direction: ltr;
-    height: 695px;
-    position: relative;
-    width: 100%;
-    will-change: transform;
-    overflow: auto;
-    border-radius: 4px;
-    padding: 3px;
+  direction: ltr;
+  height: 640px;
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  border: 1px;
+  border-radius: 10px;
+  padding: 3px;
 }
-
 </style>
