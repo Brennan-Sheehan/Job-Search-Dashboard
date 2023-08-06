@@ -20,7 +20,7 @@ export default {
     let cards = response.data;
     commit("SET_CARD_LIST", cards);
   },
-  async UPDATE_JOB_LIST({ commit }, jobList) {
+  async UPDATE_JOB_LIST_TITLE({ commit }, jobList) {
     let response = await JobBoardService.jobListUpdate(jobList);
     let list = response.data;
     let id = list.id
@@ -28,4 +28,8 @@ export default {
     commit("CHANGE_LIST_TITLE",id, name);
     
   },
+  async UPDATE_JOB_LIST_CARDS({commit}, card) {
+    let response = await JobBoardService.jobListCardUpdate(card);
+    commit("CHANGE_CARD", response.data)
+  }
 };

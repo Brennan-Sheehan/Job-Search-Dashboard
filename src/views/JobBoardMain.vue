@@ -31,7 +31,7 @@ export default {
       }
     }
   },
-  props: ['jobBoardLists'],
+  props: ['jobBoardLists', 'jobCards'],
   
   methods: {
     addJobList() {

@@ -45,10 +45,10 @@
     </div>
     <div class="job-board-cards" style="flex-grow: 1; position: relative">
       <ul
-      @drop.prevent="onDrop($event, this.jobBoardLists)"
-      @dragenter.prevent
-      @dragover.prevent>
-        
+        @drop.prevent="onDrop($event, this.jobBoardLists)"
+        @dragenter.prevent
+        @dragover.prevent
+      >
         <div
           style="
             width: auto;
@@ -66,10 +66,13 @@
             draggable="true"
             @dragstart="startDrag($event, cards)"
           />
-          
-        <div @drop.prevent="dropLink" @dragenter="checkDrop" @dragover="checkDrop"></div>
+
+          <div
+            @drop.prevent="dropLink"
+            @dragenter="checkDrop"
+            @dragover="checkDrop"
+          ></div>
         </div>
-        
       </ul>
     </div>
   </div>
@@ -97,19 +100,26 @@ export default {
     JobCards,
     CreateJobModal,
   },
-  props: ["jobBoardLists", 'jobCards'],
+  props: ["jobBoardLists", "jobCards"],
   methods: {
-    ...mapActions(["UPDATE_JOB_LIST", "GET_CARD_LIST"]),
+    ...mapActions([
+      "UPDATE_JOB_LIST",
+      "GET_CARD_LIST",
+      "UPDATE_JOB_LIST_CARDS",
+    ]),
     startDrag(evt, cards) {
-      console.log(cards)
       evt.dataTransfer.dropEffect = "move";
       evt.dataTransfer.effectAllowed = "move";
-      evt.dataTransfer.setData("itemID", cards.id);
+      evt.dataTransfer.setData("card", cards.id);
     },
-    onDrop(evt) {
-      const newCard = evt.dataTransfer.getData("itemID");
-      const card = document.getElementById(newCard)
-      evt.target.appendChild(card)
+    onDrop(evt, jobList) {
+      const newCard = evt.dataTransfer.getData("card");
+      const card = this.$store.state.jobCards.find(
+        (card) => card.id == newCard
+      );
+      card.jobBoardId = jobList.id;
+      this.getCards(this.jobBoardLists);
+      this.UPDATE_JOB_LIST_CARDS(card);
     },
   },
   computed: {
@@ -119,7 +129,7 @@ export default {
       );
       return newArray.length;
     },
-    ...mapGetters(["getCards"]),
+    ...mapGetters(["getCards", "getCard"]),
   },
   created() {
     this.GET_CARD_LIST();
@@ -166,6 +176,7 @@ export default {
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
+  color: var(--color-dark);
 }
 
 div p {
@@ -199,7 +210,7 @@ div p {
 .job-board-cards ul {
   box-sizing: border-box;
   direction: ltr;
-  height: 640px;
+  height: 700px;
   position: relative;
   width: 100%;
   overflow: auto;

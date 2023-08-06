@@ -3,6 +3,10 @@ export default {
     const listItem = state.jobBoardLists.find(d => d.id === id)
     listItem.title = name
   },
+  CHANGE_CARDS(state, card) {
+    const newCard = state.jobBoardLists.find(d => d.id === card.id)
+    newCard.jobBoardId = card.jobBoardId
+  },
   ADD_CONTACT_CARD(state, contactCard) {
     contactCard.id = state.nextContactCardId++;
 

@@ -2,107 +2,71 @@
   "job-board": [
     {
       "id": 1,
-      "title": "Brejjnnan List",
+      "title": "WishList",
       "cardCount": 4
     },
     {
       "id": 2,
-      "title": "Brejjndfgdfgnan List",
       "cardCount": 2
     },
     {
       "id": 3,
-      "title": "Brejjnnan List",
       "cardCount": 3
     },
     {
       "id": 4,
-      "title": "Bn List",
-      "cardCount": 0
-    },
-    {
-      "id": 5,
-      "title": "New title",
-      "cardCount": 0
-    },
-    {
-      "id": 6,
-      "title": "List Title",
-      "cards": [],
-      "cardCount": 0
-    },
-    {
-      "id": 7,
-      "title": "List Title",
-      "cards": [],
-      "cardCount": 0
-    },
-    {
-      "id": 8,
-      "title": "List Title",
-      "cards": [],
-      "cardCount": 0
-    },
-    {
-      "id": 9,
-      "title": "List Title",
-      "cards": [],
-      "cardCount": 0
-    },
-    {
-      "id": 10,
-      "title": "Lisasdasdat Title",
+      "title": "Accepted",
       "cardCount": 0
     }
   ],
   "job-cards": [
     {
       "id": 1,
-      "title": "Engineer",
-      "company": "Goldfinger",
+      "title": " Software Engineer",
+      "company": "Random Company",
       "color": "rgba(124, 164, 225, 0.85)",
-      "jobBoardId": 1
+      "jobBoardId": 2
     },
     {
       "id": 2,
-      "title": "Engineer",
-      "company": "Goldfinger",
+      "title": "Software Engineer",
+      "company": "Random Company",
       "color": "rgba(252, 140, 44, 0.85)",
       "jobBoardId": 1
     },
     {
       "id": 3,
-      "title": "Engineer",
-      "company": "Goldfinger",
+      "title": "Software Engineer",
+      "company": "Random Company",
       "color": "rgba(108, 172, 212, 0.85)",
       "jobBoardId": 1
     },
     {
       "id": 4,
-      "title": "Engineer",
-      "company": "Goldfinger",
+      "title": "Software Developer",
+      "company": "Random Company",
       "color": "rgb(255, 205, 96)",
       "jobBoardId": 2
     },
     {
       "id": 5,
-      "company": "asdasd",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Accepted",
       "jobBoardId": 3,
       "color": "hsl(146,80%,80%)"
     },
     {
       "id": 6,
-      "company": "dssdfd",
-      "title": "sdfsdf",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Applied",
       "jobBoardId": 2,
       "color": "hsl(43,80%,80%)"
     },
     {
       "id": 7,
-      "company": "TMAX",
+      "company": "Random Company",
       "title": "Software Engineer",
       "card": "Applied",
       "jobBoardId": 2,
@@ -110,72 +74,72 @@
     },
     {
       "id": 8,
-      "company": "asdasd",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Engineer",
       "card": "Accepted",
       "jobBoardId": 3,
       "color": "hsl(99,80%,80%)"
     },
     {
       "id": 9,
-      "company": "asdasd",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Engineer",
       "card": "Applied",
       "jobBoardId": 2,
       "color": "hsl(64,80%,80%)"
     },
     {
       "id": 10,
-      "company": "asdasd",
-      "title": "asdads",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Accepted",
       "jobBoardId": 3,
       "color": "hsl(112,80%,80%)"
     },
     {
       "id": 11,
-      "company": "asdasd",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Wishlist",
       "jobBoardId": 1,
       "color": "hsl(36,80%,80%)"
     },
     {
       "id": 12,
-      "company": "ascasc",
-      "title": "ascasc",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Applied",
       "jobBoardId": 2,
       "color": "hsl(17,80%,80%)"
     },
     {
       "id": 13,
-      "company": "sad",
-      "title": "asda",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Wishlist",
       "jobBoardId": 1,
       "color": "hsl(158,80%,80%)"
     },
     {
       "id": 14,
-      "company": "asda",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Engineer",
       "card": "Accepted",
       "jobBoardId": 3,
       "color": "hsl(36,80%,80%)"
     },
     {
       "id": 15,
-      "company": "asdasd",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Engineer",
       "card": "Accepted",
       "jobBoardId": 3,
       "color": "hsl(86,80%,80%)"
     },
     {
       "id": 16,
-      "company": "asdasd",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Developer",
       "card": "Wishlist",
       "jobBoardId": 1,
       "color": "hsl(118,80%,80%)"
@@ -183,10 +147,102 @@
     {
       "id": 17,
       "list": "Brejjnnan List",
-      "company": "asdas",
-      "title": "asdasd",
+      "company": "Random Company",
+      "title": "Software Engineer",
       "jobBoardId": 1,
       "color": "hsl(358,60%,50%)"
-    }
+    },
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "list": "Brejjnnan List",
+        "company": "Random Company",
+        "title": "Software Engineer",
+        "jobBoardId": 1,
+        "color": "hsl(358,60%,50%)"
+      }
+    ]
   ]
 }

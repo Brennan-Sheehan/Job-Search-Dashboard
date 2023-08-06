@@ -1,4 +1,4 @@
 {
     
-    "/job-board/:id": "/job-board/:id?_embed=messages"
+    "/job-board/:id": "/job-board/:id?_embed=job-cards"
 }

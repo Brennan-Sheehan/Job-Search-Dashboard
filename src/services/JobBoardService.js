@@ -15,6 +15,9 @@ export default {
     jobListUpdate(jobList) {
         return http.put(`/job-board/${jobList.id}`, jobList)
     },
+    jobListCardUpdate(card) {
+        return http.put(`/job-cards/${card.id}`, card)
+    },
 
     addJobList(jobList) {
         return http.post(`/job-board/`, jobList)

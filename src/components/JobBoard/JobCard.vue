@@ -44,21 +44,24 @@ button {
 .job-card {
   cursor: pointer;
   position: relative;
-  
   border-right: 1px solid rgba(25, 4, 69, 0.1);
   border-bottom: 1px solid rgba(25, 4, 69, 0.1);
   box-shadow: var(--box-shadow-cards);
   display: flex;
   flex-direction: column;
   border-radius: 7px;
+  color:black;
 }
 .job-card h3 {
-  margin-left: 3rem;
+  margin-left: 1rem;
   margin-top: 1rem;
+  
 }
 
 .job-card p {
-  margin-left: 3rem;
+  margin-left: 1rem;
   margin-top: 0.5rem;
+  text-align: left;
+  justify-self: flex-start;
 }
 </style>
