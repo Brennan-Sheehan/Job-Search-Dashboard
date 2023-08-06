@@ -6,49 +6,49 @@
         <h2>Dashboard</h2>
       </div>
       <section class="sidebar">
-        <router-link class="button" :to="{name: 'dashboard'}">
+        <router-link class="button" :to="{ name: 'dashboard' }">
           <div class="container">
             <span class="material-symbols-sharp"> grid_view </span>
             <span class="text">Dashboard</span>
           </div>
         </router-link>
-        <router-link class="button" :to="{name: 'profile'}">
+        <router-link class="button" :to="{ name: 'profile' }">
           <div class="container">
             <span class="material-symbols-sharp"> account_circle </span>
             <span class="text">Profile</span>
           </div>
         </router-link>
-        <router-link class="button" to="./email">
+        <router-link class="button" to="">
           <div class="container">
             <span class="material-symbols-sharp"> mail </span>
             <span class="text">Email</span>
           </div>
         </router-link>
-        <router-link class="button" to="./calendar">
+        <router-link class="button" to="">
           <div class="container">
             <span class="material-symbols-sharp"> calendar_month </span>
             <span class="text">Calendar</span>
           </div>
         </router-link>
-        <router-link class="button" :to="{name: 'contacts'}">
+        <router-link class="button" :to="{ name: 'contacts' }">
           <div class="container">
             <span class="material-symbols-sharp"> contacts </span>
             <span class="text">Contacts</span>
           </div>
         </router-link>
-        <router-link class="button" to="./documents">
+        <router-link class="button" to="">
           <div class="container">
             <span class="material-symbols-sharp"> description </span>
             <span class="text">Documents</span>
           </div>
         </router-link>
-        <router-link class="button" to="./goals">
+        <router-link class="button" to="">
           <div class="container">
             <span class="material-symbols-sharp"> task_alt </span>
             <span class="text">Goals</span>
           </div>
         </router-link>
-        <router-link class="button" :to="{name: 'job-board'}">
+        <router-link class="button" :to="{ name: 'job-board' }">
           <div class="container">
             <span class="material-symbols-sharp"> dashboard_customize </span>
             <span class="text">Job Board</span>

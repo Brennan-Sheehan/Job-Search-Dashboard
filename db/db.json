@@ -32,21 +32,21 @@
       "title": "Software Engineer",
       "company": "Random Company",
       "color": "rgba(252, 140, 44, 0.85)",
-      "jobBoardId": 1
+      "jobBoardId": 2
     },
     {
       "id": 3,
       "title": "Software Engineer",
       "company": "Random Company",
       "color": "rgba(108, 172, 212, 0.85)",
-      "jobBoardId": 1
+      "jobBoardId": 2
     },
     {
       "id": 4,
       "title": "Software Developer",
       "company": "Random Company",
       "color": "rgb(255, 205, 96)",
-      "jobBoardId": 2
+      "jobBoardId": 1
     },
     {
       "id": 5,
@@ -61,7 +61,7 @@
       "company": "Random Company",
       "title": "Software Developer",
       "card": "Applied",
-      "jobBoardId": 2,
+      "jobBoardId": 1,
       "color": "hsl(43,80%,80%)"
     },
     {
@@ -69,7 +69,7 @@
       "company": "Random Company",
       "title": "Software Engineer",
       "card": "Applied",
-      "jobBoardId": 2,
+      "jobBoardId": 1,
       "color": "hsl(142,80%,80%)"
     },
     {
@@ -125,7 +125,7 @@
       "company": "Random Company",
       "title": "Software Engineer",
       "card": "Accepted",
-      "jobBoardId": 3,
+      "jobBoardId": 4,
       "color": "hsl(36,80%,80%)"
     },
     {
@@ -133,7 +133,7 @@
       "company": "Random Company",
       "title": "Software Engineer",
       "card": "Accepted",
-      "jobBoardId": 3,
+      "jobBoardId": 2,
       "color": "hsl(86,80%,80%)"
     },
     {

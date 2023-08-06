@@ -28,8 +28,5 @@ export default {
     commit("CHANGE_LIST_TITLE",id, name);
     
   },
-  async UPDATE_JOB_LIST_CARDS({commit}, card) {
-    let response = await JobBoardService.jobListCardUpdate(card);
-    commit("CHANGE_CARD", response.data)
-  }
+  
 };

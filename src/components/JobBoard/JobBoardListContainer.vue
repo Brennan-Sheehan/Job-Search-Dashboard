@@ -84,6 +84,7 @@ import JobCards from "./JobCard.vue";
 import CreateJobModal from "./JobCardCreateModal.vue";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
+import JobBoardService from "@/services/JobBoardService";
 
 export default {
   data() {
@@ -118,8 +119,9 @@ export default {
         (card) => card.id == newCard
       );
       card.jobBoardId = jobList.id;
-      this.getCards(this.jobBoardLists);
-      this.UPDATE_JOB_LIST_CARDS(card);
+      JobBoardService.jobListCardUpdate(card).catch((e) => {
+        console.error(e.message);
+      });
     },
   },
   computed: {
